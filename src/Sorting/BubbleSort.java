@@ -6,7 +6,6 @@ public class BubbleSort extends SortBase {
     }
 
     public long sort() {
-        long swaps = 0;
         for (int i = 0; i < this.size - 1; i++) {
 
             // Last i elements are already in place
@@ -16,11 +15,9 @@ public class BubbleSort extends SortBase {
                     double temp = this.doubleArray[j];
                     this.doubleArray[j] = this.doubleArray[j + 1];
                     this.doubleArray[j + 1] = temp;
-                    swaps++;
                 }
             }
         }
-        return swaps;
+        return System.currentTimeMillis() - this.start;
     }
-
 }

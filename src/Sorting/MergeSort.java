@@ -1,10 +1,14 @@
 package Sorting;
 
 public class MergeSort extends SortBase {
-    long swaps;
+
     public MergeSort(int size) {
         super(size);
-        this.swaps = 0;
+    }
+
+    public long sort() {
+        sort(this.doubleArray, 0, this.doubleArray.length - 1);
+        return System.currentTimeMillis() - this.start;
     }
 
     private void merge(double arr[], int l, int m, int r) {
@@ -32,11 +36,9 @@ public class MergeSort extends SortBase {
         while (i < n1 && j < n2) {
             if (L[i] <= R[j]) {
                 arr[k] = L[i];
-                this.swaps++;
                 i++;
             } else {
                 arr[k] = R[j];
-                this.swaps++;
                 j++;
             }
             k++;
@@ -45,7 +47,6 @@ public class MergeSort extends SortBase {
         /* Copy remaining elements of L[] if any */
         while (i < n1) {
             arr[k] = L[i];
-            this.swaps++;
             i++;
             k++;
         }
@@ -53,7 +54,6 @@ public class MergeSort extends SortBase {
         /* Copy remaining elements of R[] if any */
         while (j < n2) {
             arr[k] = R[j];
-            this.swaps++;
             j++;
             k++;
         }
@@ -73,10 +73,5 @@ public class MergeSort extends SortBase {
             // Merge the sorted halves
             merge(arr, l, m, r);
         }
-    }
-
-    public long sort() {
-        sort(this.doubleArray, 0, this.doubleArray.length - 1);
-        return this.swaps;
     }
 }
