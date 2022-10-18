@@ -6,6 +6,11 @@ public class QuickSort extends SortBase {
     }
 
     @Override
+    public String name() {
+        return "QuickSort";
+    }
+
+    @Override
     public void sortImpl() {
         quickSort(this.doubleArray, 0, this.doubleArray.length - 1);
     }
@@ -53,10 +58,5 @@ public class QuickSort extends SortBase {
         double temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
-    }
-
-    @Override
-    public String name() {
-        return "QuickSort";
     }
 }

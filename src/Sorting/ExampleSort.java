@@ -6,10 +6,16 @@ public class ExampleSort extends SortBase {
     }
 
     @Override
+    public String name() {
+        return "ExampleSort";
+    }
+
+    @Override
     public void sortImpl() {
         exampleSort();
     }
-    private void exampleSort(){
+
+    private void exampleSort() {
         int n = this.doubleArray.length;
         for (int i = 1; i < n; ++i) {
             double key = this.doubleArray[i];
@@ -24,10 +30,5 @@ public class ExampleSort extends SortBase {
             }
             this.doubleArray[j + 1] = key;
         }
-    }
-
-    @Override
-    public String name() {
-        return "ExampleSort";
     }
 }

@@ -5,6 +5,11 @@ public class BubbleSort extends SortBase {
         super(i);
     }
 
+    @Override
+    public String name() {
+        return "BubbleSort";
+    }
+
     public void sortImpl() {
         this.bubbleSort();
     }
@@ -23,10 +28,5 @@ public class BubbleSort extends SortBase {
             }
         }
         return System.currentTimeMillis() - this.start;
-    }
-
-    @Override
-    public String name() {
-        return "BubbleSort";
     }
 }

@@ -6,6 +6,11 @@ public class MergeSort extends SortBase {
         super(size);
     }
 
+    @Override
+    public String name() {
+        return "MergeSort";
+    }
+
     public void sortImpl() {
         mergeSort(this.doubleArray, 0, this.doubleArray.length - 1);
     }
@@ -70,10 +75,5 @@ public class MergeSort extends SortBase {
             j++;
             k++;
         }
-    }
-
-    @Override
-    public String name() {
-        return "MergeSort";
     }
 }
