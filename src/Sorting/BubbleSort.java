@@ -5,7 +5,11 @@ public class BubbleSort extends SortBase {
         super(i);
     }
 
-    public long sort() {
+    public void sortImpl() {
+        this.bubbleSort();
+    }
+
+    public long bubbleSort() {
         for (int i = 0; i < this.size - 1; i++) {
 
             // Last i elements are already in place
@@ -19,5 +23,10 @@ public class BubbleSort extends SortBase {
             }
         }
         return System.currentTimeMillis() - this.start;
+    }
+
+    @Override
+    public String name() {
+        return "BubbleSort";
     }
 }

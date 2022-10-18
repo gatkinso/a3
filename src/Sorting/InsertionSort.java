@@ -6,12 +6,11 @@ public class InsertionSort extends SortBase {
     }
 
     @Override
-    public long sort() {
-        this.sort(this.doubleArray);
-        return System.currentTimeMillis() - this.start;
+    public void sortImpl() {
+        this.insertionSort(this.doubleArray);
     }
 
-    private void sort(double arr[])
+    private void insertionSort(double arr[])
     {
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
@@ -27,5 +26,10 @@ public class InsertionSort extends SortBase {
             }
             arr[j + 1] = key;
         }
+    }
+
+    @Override
+    public String name() {
+        return "InsertionSort";
     }
 }

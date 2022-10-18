@@ -16,4 +16,10 @@ public abstract class SortBase implements ISort {
         this.start = System.currentTimeMillis();
     }
 
+    public long sort() {
+        sortImpl();
+        return System.currentTimeMillis() - this.start;
+    }
+
+    abstract void sortImpl();
 }

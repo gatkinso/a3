@@ -6,9 +6,22 @@ public class MergeSort extends SortBase {
         super(size);
     }
 
-    public long sort() {
-        sort(this.doubleArray, 0, this.doubleArray.length - 1);
-        return System.currentTimeMillis() - this.start;
+    public void sortImpl() {
+        mergeSort(this.doubleArray, 0, this.doubleArray.length - 1);
+    }
+
+    private void mergeSort(double arr[], int l, int r) {
+        if (l < r) {
+            // Find the middle point
+            int m = l + (r - l) / 2;
+
+            // Sort first and second halves
+            mergeSort(arr, l, m);
+            mergeSort(arr, m + 1, r);
+
+            // Merge the sorted halves
+            merge(arr, l, m, r);
+        }
     }
 
     private void merge(double arr[], int l, int m, int r) {
@@ -59,19 +72,8 @@ public class MergeSort extends SortBase {
         }
     }
 
-    // Main function that sorts arr[l..r] using
-    // merge()
-    private void sort(double arr[], int l, int r) {
-        if (l < r) {
-            // Find the middle point
-            int m = l + (r - l) / 2;
-
-            // Sort first and second halves
-            sort(arr, l, m);
-            sort(arr, m + 1, r);
-
-            // Merge the sorted halves
-            merge(arr, l, m, r);
-        }
+    @Override
+    public String name() {
+        return "MergeSort";
     }
 }

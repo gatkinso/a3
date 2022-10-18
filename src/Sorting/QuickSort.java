@@ -6,15 +6,21 @@ public class QuickSort extends SortBase {
     }
 
     @Override
-    public long sort() {
+    public void sortImpl() {
         quickSort(this.doubleArray, 0, this.doubleArray.length - 1);
-        return System.currentTimeMillis() - this.start;
     }
 
-    private void swap(double[] arr, int i, int j) {
-        double temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+    private void quickSort(double[] arr, int low, int high) {
+        if (low < high) {
+            // pi is partitioning index, arr[p]
+            // is now at right place
+            int pi = partition(arr, low, high);
+
+            // Separately sort elements before
+            // partition and after partition
+            quickSort(arr, low, pi - 1);
+            quickSort(arr, pi + 1, high);
+        }
     }
 
     private int partition(double[] arr, int low, int high) {
@@ -43,16 +49,14 @@ public class QuickSort extends SortBase {
         return (i + 1);
     }
 
-    private void quickSort(double[] arr, int low, int high) {
-        if (low < high) {
-            // pi is partitioning index, arr[p]
-            // is now at right place
-            int pi = partition(arr, low, high);
+    private void swap(double[] arr, int i, int j) {
+        double temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
 
-            // Separately sort elements before
-            // partition and after partition
-            quickSort(arr, low, pi - 1);
-            quickSort(arr, pi + 1, high);
-        }
+    @Override
+    public String name() {
+        return "QuickSort";
     }
 }
