@@ -14,7 +14,7 @@ public class BubbleSort extends SortBase {
         this.bubbleSort();
     }
 
-    public long bubbleSort() {
+    public void bubbleSort() {
         for (int i = 0; i < this.size - 1; i++) {
 
             // Last i elements are already in place
@@ -27,6 +27,5 @@ public class BubbleSort extends SortBase {
                 }
             }
         }
-        return System.currentTimeMillis() - this.start;
     }
 }

@@ -2,7 +2,7 @@ package Sorting;
 
 public class Main {
     public static void main(String[] args) {
-        int size = 100000;
+        int size = 60000;
 
         SortBase sorter = new InsertionSort(size);
         System.out.println(sorter.name()+" took:\t"+ sorter.sort()+" milliseconds");
